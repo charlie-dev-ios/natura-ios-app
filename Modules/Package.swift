@@ -1,0 +1,25 @@
+// swift-tools-version: 6.0
+// The swift-tools-version declares the minimum version of Swift required to build this package.
+
+import PackageDescription
+
+let package = Package(
+    name: "Modules",
+    platforms: [.iOS(.v18)],
+    products: [
+        
+    ],
+    dependencies: [
+      .package(
+        url: "https://github.com/pointfreeco/swift-composable-architecture",
+        .upToNextMinor(from: "1.12.1")
+      )
+    ],
+    targets: [
+        .target(name: .feature)
+    ]
+)
+
+private extension String {
+    static let feature = "Feature"
+}
