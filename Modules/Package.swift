@@ -5,9 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "Modules",
-    platforms: [.iOS(.v18)],
+    platforms: [
+      .iOS(.v18),
+      .macOS(.v15)
+    ],
     products: [
-        
+      .library(name: .feature, targets: [.feature])
     ],
     dependencies: [
       .package(
@@ -16,7 +19,12 @@ let package = Package(
       )
     ],
     targets: [
-        .target(name: .feature)
+        .target(
+          name: .feature,
+          dependencies: [
+            .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+          ]
+        )
     ]
 )
 
