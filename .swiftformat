@@ -1,0 +1,155 @@
+disable --acronyms	
+# disable andOperator
+# disable anyObjectProtocol
+# disable applicationMain
+# disable assertionFailures
+# disable blankLineAfterImports
+# disable blankLineAfterSwitchCase
+--lineaftermarks true	
+# disable blankLinesAtEndOfScope
+# disable blankLinesAtStartOfScope
+# disable blankLinesBetweenChainedFunctions
+# disable blankLinesBetweenImports
+# disable blankLinesBetweenScopes
+# disable blockComments
+--allman true	
+--condassignment after-property	
+# disable consecutiveBlankLines
+# disable consecutiveSpaces
+# disable consistentSwitchCaseSpacing
+--doccomments	
+# disable duplicateImports
+--elseposition same-line		
+--guardelse same-line
+--emptybraces no-space
+--enumnamespaces always
+--extensionacl on-declarations
+
+# file header
+--header strip
+--dateformat system
+--timezone system
+
+# disable --generictypes	
+# disable headerFileName
+# disable --asynccapturing 
+--patternlet hoist
+# disable --throwcapturing
+--indent 4
+--tabwidth unspecified
+disable --smarttabs
+--indentcase false
+--ifdef	no-indent
+--xcodeindentation disabled
+--indentstrings	false
+# disable --initcodernil
+# disable isEmpty
+# disable leadingDelimiters
+# disable linebreakAtEndOfFile
+--linebreaks lf
+# TODO: markTypes
+# disable --modifierorder
+# disable noExplicitOwnership
+--decimalgrouping 3,6
+--binarygrouping 4,8
+--octalgrouping	4,8
+--hexgrouping 4,8
+--fractiongrouping disabled
+--exponentgrouping disabled
+--hexliteralcase uppercase
+--exponentcase uppercase
+--someany true
+--categorymark "MARK: %c"
+--markcategories true
+# disable --beforemarks
+# disable --lifecycle
+# disable --organizetypes
+--structthreshold 0
+--classthreshold 0
+--enumthreshold	0
+--extensionlength 0
+--organizationmode visibility
+--anonymousforeach convert
+--onelineforeach ignore
+# disable preferKeyPath
+# disable redundantBackticks
+# disable redundantBreak
+# disable redundantClosure
+# disable redundantExtensionACL
+# disable redundantFileprivate
+# disable redundantGet
+# disable redundantInit
+# disable redundantInternal
+# disable redundantLet
+# disable redundantLetError
+--nilinit remove
+# disable redundantObjc
+# disable redundantOptionalBinding
+# disable redundantParens
+# disable redundantPattern
+# disable redundantProperty
+# disable redundantRawValues
+# disable redundantReturn
+--self remove
+# disable --selfrequired
+# disable redundantStaticSelf
+disable --redundanttype
+# disable redundantTypedThrows
+--closurevoid remove
+--semicolons inline
+# disable sortDeclarations
+--importgrouping alpha
+disable sortSwitchCases
+# disable sortTypealiases
+# disable spaceAroundBraces
+# disable spaceAroundBrackets
+# disable spaceAroundComments
+# disable spaceAroundGenerics
+--operatorfunc spaced
+# disable --nospaceoperators
+--ranges spaced
+--typedelimiter space-after
+# disable spaceAroundParens
+# disable spaceInsideBraces
+# disable spaceInsideBrackets
+# disable spaceInsideComments
+# disable spaceInsideGenerics
+# disable spaceInsideParens
+# disable strongOutlets
+# disable strongifiedSelf
+# disable todos
+# disable --trailingclosures
+# disable --nevertrailing
+# disable --commas
+--trimwhitespace always
+--shortoptionals except-properties
+--stripunusedargs always
+--voidtype void
+--maxwidth none
+# disable --nowrapoperators
+--assetliterals	actual-width
+--wrapternary default
+--wraparguments	before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--closingparen balanced
+--callsiteparen balanced
+--wrapreturntype preserve
+--wrapconditions before-first
+--wraptypealiases before-first
+--wrapeffects if-multiline
+--funcattributes prev-line
+--typeattributes prev-line
+--storedvarattrs prev-line
+--computedvarattrs prev-line
+--complexattrs prev-line
+# --noncomplexattrs
+# disable wrapConditionalBodies
+# disable --wrapenumcases
+# disable wrapLoopBodies
+# disable wrapMultilineConditionalAssignment
+disable wrapMultilineStatementBraces
+disable wrapSingleLineComments
+disable wrapSwitchCases
+--yodaswap always
+
