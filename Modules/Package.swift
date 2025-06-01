@@ -6,28 +6,27 @@ import PackageDescription
 let package = Package(
     name: "Modules",
     platforms: [
-      .iOS(.v18),
-      .macOS(.v15)
+        .iOS(.v18),
     ],
     products: [
-      .library(name: .feature, targets: [.feature])
+        .library(name: .feature, targets: [.feature]),
     ],
     dependencies: [
-      .package(
-        url: "https://github.com/pointfreeco/swift-composable-architecture",
-        .upToNextMinor(from: "1.12.1")
-      )
+        .package(
+            url: "https://github.com/pointfreeco/swift-composable-architecture",
+            .upToNextMinor(from: "1.12.1")
+        ),
     ],
     targets: [
         .target(
-          name: .feature,
-          dependencies: [
-            .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
-          ]
-        )
+            name: .feature,
+            dependencies: [
+                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+            ]
+        ),
     ]
 )
 
-private extension String {
-    static let feature = "Feature"
+extension String {
+    fileprivate static let feature = "Feature"
 }

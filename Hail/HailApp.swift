@@ -5,8 +5,8 @@
 //  Created by kotaro-seki on 2024/07/23.
 //
 
-import SwiftUI
 import Feature
+import SwiftUI
 
 @main
 struct HailApp: App {

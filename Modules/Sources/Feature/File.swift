@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SampleView: View {
-  var body: some View {
-    Text("hello")
-  }
+    var body: some View {
+        Text("hello")
+    }
 }
 
 #Preview {
-  SampleView()
+    SampleView()
 }
