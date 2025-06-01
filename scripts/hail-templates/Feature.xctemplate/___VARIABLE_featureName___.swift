@@ -1,7 +1,7 @@
 // ___FILEHEADER___
 
-import ComposableArchitecture
 import CommonUI
+import ComposableArchitecture
 import Foundation
 import SwiftUI
 
@@ -13,7 +13,7 @@ struct ___VARIABLE_featureName___: Reducer {
     enum Action {}
 
     var body: some ReducerOf<Self> {
-        Reduce<State, Action> { state, action in
+        Reduce<State, Action> { _, action in
             switch action {}
         }
     }

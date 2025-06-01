@@ -14,7 +14,7 @@ public struct ___VARIABLE_featureName___: Reducer {
     public init() {}
 
     public var body: some ReducerOf<Self> {
-        Reduce<State, Action> { state, action in
+        Reduce<State, Action> { _, action in
             switch action {}
         }
     }
