@@ -9,6 +9,7 @@
 ## ユーザーストーリーマッピング
 - [UserStoryMapping/UserStoryMapping.md](UserStoryMapping/UserStoryMapping.md) : ユーザーストーリーマッピング概要
 - [UserStoryMapping/UserStoryMappingTemplate.md](UserStoryMapping/UserStoryMappingTemplate.md) : ユーザーストーリーマッピング テンプレート・使用例
+- [UserStoryMapping/Main.md](UserStoryMapping/Main.md) : ユーザーストーリーマッピング本体
 
 ## 設計
 - [Architecture.md](Architecture.md) : アーキテクチャ設計
