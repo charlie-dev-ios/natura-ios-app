@@ -2,14 +2,23 @@
 
 このディレクトリには本プロジェクトの各種ドキュメントが格納されています。
 
-## 要件定義
-- [Requirements/Requirements.md](Requirements/Requirements.md) : 要件定義本体
-- [Requirements/RequirementsTemplate.md](Requirements/RequirementsTemplate.md) : 要件定義テンプレート
+## 管理方針
+- ドキュメントはカテゴリごとにディレクトリを分けて管理します。
+    - 例: 「ユーザーストーリーマッピング」「仕様」「設計」など
+- 各カテゴリ配下にREADME.mdを設置し、そのカテゴリの目的や運用ルール、ファイル構成を記載してください。
+- テンプレートやサンプルは「テンプレート.md」等のファイル名で管理します。
+- ファイル名・ディレクトリ名は日本語で分かりやすく記載してください。
+- 追加・変更時は必ず該当ディレクトリのREADMEも更新してください。
+- ドキュメント構成やファイル追加・削除・リネーム等の変更時は、必ずこの全体目次（Documentation/README.md）も編集してください。
 
 ## ユーザーストーリーマッピング
-- [UserStoryMapping/UserStoryMapping.md](UserStoryMapping/UserStoryMapping.md) : ユーザーストーリーマッピング概要
-- [UserStoryMapping/UserStoryMappingTemplate.md](UserStoryMapping/UserStoryMappingTemplate.md) : ユーザーストーリーマッピング テンプレート・使用例
-- [UserStoryMapping/Main.md](UserStoryMapping/Main.md) : ユーザーストーリーマッピング本体
+- [ユーザーストーリーマッピング/README.md](ユーザーストーリーマッピング/README.md) : ユーザーストーリーマッピングの説明
+- [ユーザーストーリーマッピング/全体像.md](ユーザーストーリーマッピング/全体像.md) : ユーザーストーリーマッピング概要
+- [ユーザーストーリーマッピング/テンプレート.md](ユーザーストーリーマッピング/テンプレート.md) : ユーザーストーリーマッピング テンプレート・使用例
+
+## 仕様書
+- [仕様/README.md](仕様/README.md) : 仕様検討・設計方針・議論記録
+- [仕様/テンプレート.md](仕様/テンプレート.md) : 仕様書テンプレート
 
 ## 設計
 - [Architecture.md](Architecture.md) : アーキテクチャ設計
