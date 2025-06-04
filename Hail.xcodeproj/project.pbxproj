@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B84DCC5E2DF1070D0032759B /* Feature in Frameworks */ = {isa = PBXBuildFile; productRef = B84DCC5D2DF1070D0032759B /* Feature */; };
+		B84DCC602DF109900032759B /* RootFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B84DCC5F2DF109900032759B /* RootFeature */; };
 		B89C8E452C4FFBAA00CCF3C2 /* HailApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E442C4FFBAA00CCF3C2 /* HailApp.swift */; };
-		B89C8E472C4FFBAA00CCF3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E462C4FFBAA00CCF3C2 /* ContentView.swift */; };
 		B89C8E492C4FFBAD00CCF3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B89C8E482C4FFBAD00CCF3C2 /* Assets.xcassets */; };
 		B89C8E4D2C4FFBAD00CCF3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B89C8E4C2C4FFBAD00CCF3C2 /* Preview Assets.xcassets */; };
 		B89C8E572C4FFBAD00CCF3C2 /* HailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E562C4FFBAD00CCF3C2 /* HailTests.swift */; };
@@ -37,7 +36,6 @@
 /* Begin PBXFileReference section */
 		B89C8E412C4FFBAA00CCF3C2 /* Hail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B89C8E442C4FFBAA00CCF3C2 /* HailApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HailApp.swift; sourceTree = "<group>"; };
-		B89C8E462C4FFBAA00CCF3C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B89C8E482C4FFBAD00CCF3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B89C8E4A2C4FFBAD00CCF3C2 /* Hail.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hail.entitlements; sourceTree = "<group>"; };
 		B89C8E4C2C4FFBAD00CCF3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -54,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B84DCC5E2DF1070D0032759B /* Feature in Frameworks */,
+				B84DCC602DF109900032759B /* RootFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				B89C8E442C4FFBAA00CCF3C2 /* HailApp.swift */,
-				B89C8E462C4FFBAA00CCF3C2 /* ContentView.swift */,
 				B89C8E482C4FFBAD00CCF3C2 /* Assets.xcassets */,
 				B89C8E4A2C4FFBAD00CCF3C2 /* Hail.entitlements */,
 				B89C8E4B2C4FFBAD00CCF3C2 /* Preview Content */,
@@ -273,7 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B89C8E472C4FFBAA00CCF3C2 /* ContentView.swift in Sources */,
 				B89C8E452C4FFBAA00CCF3C2 /* HailApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,9 +635,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B84DCC5D2DF1070D0032759B /* Feature */ = {
+		B84DCC5F2DF109900032759B /* RootFeature */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Feature;
+			productName = RootFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

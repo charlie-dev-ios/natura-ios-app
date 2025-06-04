@@ -9,24 +9,27 @@ let package = Package(
         .iOS(.v18),
     ],
     products: [
-        .library(name: .feature, targets: [.feature]),
+        .library(name: .rootFeature, targets: [.rootFeature]),
     ],
     dependencies: [
         .package(
-          url: "https://github.com/pointfreeco/swift-composable-architecture",
-          from: Version(1, 20, 2)
-        )
+            url: "https://github.com/pointfreeco/swift-composable-architecture",
+            from: Version(1, 20, 2)
+        ),
     ],
     targets: [
         .target(
-            name: .feature,
+            name: .rootFeature,
             dependencies: [
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+                .product(
+                    name: "ComposableArchitecture",
+                    package: "swift-composable-architecture"
+                ),
             ]
         ),
     ]
 )
 
 extension String {
-    fileprivate static let feature = "Feature"
+    fileprivate static let rootFeature = "RootFeature"
 }
