@@ -13,9 +13,9 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/pointfreeco/swift-composable-architecture",
-            .upToNextMinor(from: "1.12.1")
-        ),
+          url: "https://github.com/pointfreeco/swift-composable-architecture",
+          from: Version(1, 20, 2)
+        )
     ],
     targets: [
         .target(

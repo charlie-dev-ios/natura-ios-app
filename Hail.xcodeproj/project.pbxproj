@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B84DCC5E2DF1070D0032759B /* Feature in Frameworks */ = {isa = PBXBuildFile; productRef = B84DCC5D2DF1070D0032759B /* Feature */; };
 		B89C8E452C4FFBAA00CCF3C2 /* HailApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E442C4FFBAA00CCF3C2 /* HailApp.swift */; };
 		B89C8E472C4FFBAA00CCF3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E462C4FFBAA00CCF3C2 /* ContentView.swift */; };
 		B89C8E492C4FFBAD00CCF3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B89C8E482C4FFBAD00CCF3C2 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B84DCC5E2DF1070D0032759B /* Feature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +75,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B84DCC5C2DF1070D0032759B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B89C8E382C4FFBAA00CCF3C2 = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +89,7 @@
 				B89C8E552C4FFBAD00CCF3C2 /* HailTests */,
 				B89C8E5F2C4FFBAD00CCF3C2 /* HailUITests */,
 				B89C8E6F2C5000E300CCF3C2 /* Modules */,
+				B84DCC5C2DF1070D0032759B /* Frameworks */,
 				B89C8E422C4FFBAA00CCF3C2 /* Products */,
 			);
 			indentWidth = 4;
@@ -359,6 +369,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -412,6 +423,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -625,6 +637,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B84DCC5D2DF1070D0032759B /* Feature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Feature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B89C8E392C4FFBAA00CCF3C2 /* Project object */;
 }
