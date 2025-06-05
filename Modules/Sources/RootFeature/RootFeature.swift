@@ -7,6 +7,7 @@
 
 // import CommonUI
 import ComposableArchitecture
+import DashboardFeature
 import Foundation
 import SwiftUI
 
@@ -14,14 +15,24 @@ import SwiftUI
 public struct RootFeature: Reducer {
     @ObservableState
     public struct State: Equatable {
+        var dashboard = DashboardFeature.State()
+
         public init() {}
     }
 
-    public enum Action: Equatable {}
+    public enum Action: Equatable {
+        case dashboard(DashboardFeature.Action)
+    }
 
     public init() {}
 
     public var body: some ReducerOf<Self> {
+        Scope(
+            state: \.dashboard,
+            action: \.dashboard
+        ) {
+            DashboardFeature()
+        }
         Reduce { _, _ in
             .none
         }
@@ -37,14 +48,24 @@ public struct RootView: View {
 
     public var body: some View {
         TabView {
-            Text("Dashboard")
-                .tabItem {
-                    Label("Dashboard", systemImage: "rectangle.grid.2x2")
-                }
+            DashboardView(
+                store: store.scope(
+                    state: \.dashboard,
+                    action: \.dashboard
+                )
+            )
+            .tabItem {
+                Label(
+                    "Dashboard",
+                    systemImage: "rectangle.grid.2x2"
+                )
+            }
+
             Text("Workbench")
                 .tabItem {
                     Label("Workbench", systemImage: "hammer")
                 }
+
             Text("Measurement")
                 .tabItem {
                     Label("Measurement", systemImage: "waveform")

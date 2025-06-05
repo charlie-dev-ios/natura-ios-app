@@ -10,6 +10,7 @@ let package = Package(
     ],
     products: [
         .library(name: .rootFeature, targets: [.rootFeature]),
+        .library(name: .dashboardFeature, targets: [.dashboardFeature]),
     ],
     dependencies: [
         .package(
@@ -27,9 +28,19 @@ let package = Package(
                 ),
             ]
         ),
+        .target(
+            name: .dashboardFeature,
+            dependencies: [
+                .product(
+                    name: "ComposableArchitecture",
+                    package: "swift-composable-architecture"
+                ),
+            ]
+        ),
     ]
 )
 
 extension String {
     fileprivate static let rootFeature = "RootFeature"
+    fileprivate static let dashboardFeature = "DashboardFeature"
 }

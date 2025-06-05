@@ -12,9 +12,10 @@ import SwiftUI
 @main
 struct HailApp: App {
     static let store = Store(
-        initialState: RootFeature.State(),
-        reducer: { RootFeature() }
-    )
+        initialState: RootFeature.State()
+    ) {
+        RootFeature()
+    }
 
     var body: some Scene {
         WindowGroup {

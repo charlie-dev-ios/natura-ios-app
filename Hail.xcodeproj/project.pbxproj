@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B84DCC602DF109900032759B /* RootFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B84DCC5F2DF109900032759B /* RootFeature */; };
+		B84DCC622DF10F380032759B /* DashboardFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B84DCC612DF10F380032759B /* DashboardFeature */; };
 		B89C8E452C4FFBAA00CCF3C2 /* HailApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E442C4FFBAA00CCF3C2 /* HailApp.swift */; };
 		B89C8E492C4FFBAD00CCF3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B89C8E482C4FFBAD00CCF3C2 /* Assets.xcassets */; };
 		B89C8E4D2C4FFBAD00CCF3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B89C8E4C2C4FFBAD00CCF3C2 /* Preview Assets.xcassets */; };
@@ -52,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B84DCC622DF10F380032759B /* DashboardFeature in Frameworks */,
 				B84DCC602DF109900032759B /* RootFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -638,6 +640,10 @@
 		B84DCC5F2DF109900032759B /* RootFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RootFeature;
+		};
+		B84DCC612DF10F380032759B /* DashboardFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DashboardFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
