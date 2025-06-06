@@ -11,6 +11,7 @@ let package = Package(
     products: [
         .library(name: .rootFeature, targets: [.rootFeature]),
         .library(name: .dashboardFeature, targets: [.dashboardFeature]),
+        .library(name: .commonUI, targets: [.commonUI]),
     ],
     dependencies: [
         .package(
@@ -26,6 +27,7 @@ let package = Package(
                     name: "ComposableArchitecture",
                     package: "swift-composable-architecture"
                 ),
+                .target(name: .commonUI),
             ]
         ),
         .target(
@@ -35,7 +37,12 @@ let package = Package(
                     name: "ComposableArchitecture",
                     package: "swift-composable-architecture"
                 ),
+                .target(name: .commonUI),
             ]
+        ),
+        .target(
+            name: .commonUI,
+            dependencies: []
         ),
     ]
 )
@@ -43,4 +50,5 @@ let package = Package(
 extension String {
     fileprivate static let rootFeature = "RootFeature"
     fileprivate static let dashboardFeature = "DashboardFeature"
+    fileprivate static let commonUI = "CommonUI"
 }
