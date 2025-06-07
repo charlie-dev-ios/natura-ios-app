@@ -83,7 +83,7 @@ public struct WorkbenchView: View {
       case let .pipeline(store):
         PipelineManageTopView(store: store)
       case let .graph(store):
-        PipelineManageTopView(store: store)
+        GraphManageTopView(store: store)
       }
     }
     .navigationTitle("ワークベンチ画面")
