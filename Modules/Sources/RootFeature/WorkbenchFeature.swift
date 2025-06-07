@@ -14,8 +14,7 @@ public struct WorkbenchFeature: Reducer {
         public init() {}
     }
 
-    public enum Action: Equatable {
-    }
+    public enum Action: Equatable {}
 
     public init() {}
 
@@ -44,11 +43,11 @@ public struct WorkbenchView: View {
 #Preview {
     NavigationStack {
         WorkbenchView(
-          store: Store(
-            initialState: WorkbenchFeature.State()
-          ) {
-              WorkbenchFeature()
-          }
+            store: Store(
+                initialState: WorkbenchFeature.State()
+            ) {
+                WorkbenchFeature()
+            }
         )
     }
 }
