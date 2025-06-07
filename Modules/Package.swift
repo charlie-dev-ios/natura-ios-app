@@ -16,6 +16,7 @@ let package = Package(
     .library(name: .hashtagFeature, targets: [.hashtagFeature]),
     .library(name: .pipelineFeature, targets: [.pipelineFeature]),
     .library(name: .graphFeature, targets: [.graphFeature]),
+    .library(name: .domain, targets: [.domain]),
   ],
   dependencies: [
     .package(
@@ -40,6 +41,7 @@ let package = Package(
         .target(name: .hashtagFeature),
         .target(name: .pipelineFeature),
         .target(name: .graphFeature),
+        .target(name: .domain),
       ]
     ),
     .target(
@@ -87,6 +89,10 @@ let package = Package(
         ),
       ]
     ),
+    .target(
+      name: .domain,
+      dependencies: []
+    ),
   ]
 )
 
@@ -97,4 +103,5 @@ extension String {
   fileprivate static let hashtagFeature = "HashtagFeature"
   fileprivate static let pipelineFeature = "PipelineFeature"
   fileprivate static let graphFeature = "GraphFeature"
+  fileprivate static let domain = "Domain"
 }
