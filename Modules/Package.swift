@@ -7,6 +7,7 @@ let package = Package(
     name: "Modules",
     platforms: [
         .iOS(.v18),
+        .macOS(.v15),
     ],
     products: [
         .library(name: .rootFeature, targets: [.rootFeature]),
@@ -28,7 +29,7 @@ let package = Package(
                     package: "swift-composable-architecture"
                 ),
                 .target(name: .commonUI),
-                .target(name: .rootFeature),
+                .target(name: .dashboardFeature),
             ]
         ),
         .target(
