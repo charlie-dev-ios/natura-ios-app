@@ -28,6 +28,7 @@ let package = Package(
                     package: "swift-composable-architecture"
                 ),
                 .target(name: .commonUI),
+                .target(name: .rootFeature),
             ]
         ),
         .target(

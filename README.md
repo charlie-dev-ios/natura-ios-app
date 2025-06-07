@@ -1,11 +1,11 @@
-# hail-ios-app
+# natura-ios-app
 
-このリポジトリは iOS アプリ「hail」のプロジェクトです。
+このリポジトリは iOS アプリ「Natura」のプロジェクトです。
 
 ## ディレクトリ構成
 
 - `Documentation/` : 各種ドキュメント
-- `Hail/` : アプリ本体のソースコード
+- `Natura/` : アプリ本体のソースコード
 - `Modules/` : モジュール・ライブラリ関連
 - `scripts/` : 各種スクリプト
 

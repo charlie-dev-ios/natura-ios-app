@@ -1,13 +1,13 @@
 //
-//  HailUITestsLaunchTests.swift
-//  HailUITests
+//  NaturaUITestsLaunchTests.swift
+//  NaturaUITests
 //
 //  Created by kotaro-seki on 2024/07/23.
 //
 
 import XCTest
 
-final class HailUITestsLaunchTests: XCTestCase {
+final class NaturaUITestsLaunchTests: XCTestCase {
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

@@ -1,4 +1,4 @@
-# SwiftFormat configuration for Hail iOS App
+# SwiftFormat configuration for Natura iOS App
 --indent 4
 --allman false
 --linebreaks lf

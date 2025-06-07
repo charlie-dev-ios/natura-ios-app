@@ -1,13 +1,13 @@
 //
-//  HailUITests.swift
-//  HailUITests
+//  NaturaUITests.swift
+//  NaturaUITests
 //
 //  Created by kotaro-seki on 2024/07/23.
 //
 
 import XCTest
 
-final class HailUITests: XCTestCase {
+final class NaturaUITests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 

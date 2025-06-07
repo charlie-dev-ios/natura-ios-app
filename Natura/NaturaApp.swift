@@ -1,6 +1,6 @@
 //
-//  HailApp.swift
-//  Hail
+//  NaturaApp.swift
+//  Natura
 //
 //  Created by kotaro-seki on 2024/07/23.
 //
@@ -10,7 +10,7 @@ import RootFeature
 import SwiftUI
 
 @main
-struct HailApp: App {
+struct NaturaApp: App {
     static let store = Store(
         initialState: RootFeature.State()
     ) {
@@ -19,7 +19,7 @@ struct HailApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView(store: HailApp.store)
+            RootView(store: NaturaApp.store)
         }
     }
 }
