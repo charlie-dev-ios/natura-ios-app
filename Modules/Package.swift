@@ -13,6 +13,9 @@ let package = Package(
         .library(name: .rootFeature, targets: [.rootFeature]),
         .library(name: .dashboardFeature, targets: [.dashboardFeature]),
         .library(name: .commonUI, targets: [.commonUI]),
+        .library(name: .hashtagFeature, targets: [.hashtagFeature]),
+        .library(name: .pipelineFeature, targets: [.pipelineFeature]),
+        .library(name: .graphFeature, targets: [.graphFeature]),
     ],
     dependencies: [
         .package(
@@ -30,6 +33,9 @@ let package = Package(
                 ),
                 .target(name: .commonUI),
                 .target(name: .dashboardFeature),
+                .target(name: .hashtagFeature),
+                .target(name: .pipelineFeature),
+                .target(name: .graphFeature),
             ]
         ),
         .target(
@@ -46,6 +52,33 @@ let package = Package(
             name: .commonUI,
             dependencies: []
         ),
+        .target(
+            name: .hashtagFeature,
+            dependencies: [
+                .product(
+                    name: "ComposableArchitecture",
+                    package: "swift-composable-architecture"
+                ),
+            ]
+        ),
+        .target(
+            name: .pipelineFeature,
+            dependencies: [
+                .product(
+                    name: "ComposableArchitecture",
+                    package: "swift-composable-architecture"
+                ),
+            ]
+        ),
+        .target(
+            name: .graphFeature,
+            dependencies: [
+                .product(
+                    name: "ComposableArchitecture",
+                    package: "swift-composable-architecture"
+                ),
+            ]
+        ),
     ]
 )
 
@@ -53,4 +86,7 @@ extension String {
     fileprivate static let rootFeature = "RootFeature"
     fileprivate static let dashboardFeature = "DashboardFeature"
     fileprivate static let commonUI = "CommonUI"
+    fileprivate static let hashtagFeature = "HashtagFeature"
+    fileprivate static let pipelineFeature = "PipelineFeature"
+    fileprivate static let graphFeature = "GraphFeature"
 }

@@ -17,6 +17,7 @@ public struct RootFeature: Reducer {
     public struct State: Equatable {
         var dashboard = DashboardFeature.State()
         var workbench = WorkbenchFeature.State()
+
         public init() {}
     }
 
