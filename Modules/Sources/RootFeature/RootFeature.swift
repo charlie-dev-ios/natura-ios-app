@@ -5,7 +5,7 @@
 //  Created by kotaro-seki on 2024/07/29.
 //
 
-// import CommonUI
+import CommonUI
 import ComposableArchitecture
 import DashboardFeature
 import Foundation
@@ -16,12 +16,13 @@ public struct RootFeature: Reducer {
     @ObservableState
     public struct State: Equatable {
         var dashboard = DashboardFeature.State()
-
+        var workbench = WorkbenchFeature.State()
         public init() {}
     }
 
     public enum Action: Equatable {
         case dashboard(DashboardFeature.Action)
+        case workbench(WorkbenchFeature.Action)
     }
 
     public init() {}
@@ -32,6 +33,12 @@ public struct RootFeature: Reducer {
             action: \.dashboard
         ) {
             DashboardFeature()
+        }
+        Scope(
+            state: \.workbench,
+            action: \.workbench
+        ) {
+            WorkbenchFeature()
         }
         Reduce { _, _ in
             .none
@@ -61,10 +68,15 @@ public struct RootView: View {
                 )
             }
 
-            Text("Workbench")
-                .tabItem {
-                    Label("Workbench", systemImage: "hammer")
-                }
+            WorkbenchView(
+                store: store.scope(
+                    state: \.workbench,
+                    action: \.workbench
+                )
+            )
+            .tabItem {
+                Label("Workbench", systemImage: "hammer")
+            }
 
             Text("Measurement")
                 .tabItem {
