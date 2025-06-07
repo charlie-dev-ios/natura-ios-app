@@ -1,5 +1,5 @@
 # SwiftFormat configuration for Natura iOS App
---indent 4
+--indent 2
 --allman false
 --linebreaks lf
 --trimwhitespace always

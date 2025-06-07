@@ -10,42 +10,42 @@ import SwiftUI
 
 @Reducer
 public struct DashboardFeature: Reducer {
-    @ObservableState
-    public struct State: Equatable {
-        public init() {}
-    }
-
-    public enum Action: Equatable {}
-
+  @ObservableState
+  public struct State: Equatable {
     public init() {}
+  }
 
-    public var body: some ReducerOf<Self> {
-        Reduce { _, _ in
-            .none
-        }
+  public enum Action: Equatable {}
+
+  public init() {}
+
+  public var body: some ReducerOf<Self> {
+    Reduce { _, _ in
+      .none
     }
+  }
 }
 
 public struct DashboardView: View {
-    let store: StoreOf<DashboardFeature>
+  let store: StoreOf<DashboardFeature>
 
-    public init(store: StoreOf<DashboardFeature>) {
-        self.store = store
-    }
+  public init(store: StoreOf<DashboardFeature>) {
+    self.store = store
+  }
 
-    public var body: some View {
-        LoadingView()
-    }
+  public var body: some View {
+    LoadingView()
+  }
 }
 
 #Preview {
-    NavigationStack {
-        DashboardView(
-            store: Store(
-                initialState: DashboardFeature.State()
-            ) {
-                DashboardFeature()
-            }
-        )
-    }
+  NavigationStack {
+    DashboardView(
+      store: Store(
+        initialState: DashboardFeature.State()
+      ) {
+        DashboardFeature()
+      }
+    )
+  }
 }

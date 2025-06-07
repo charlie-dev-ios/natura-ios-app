@@ -13,86 +13,86 @@ import SwiftUI
 
 @Reducer
 public struct RootFeature: Reducer {
-    @ObservableState
-    public struct State: Equatable {
-        var dashboard = DashboardFeature.State()
-        var workbench = WorkbenchFeature.State()
-
-        public init() {}
-    }
-
-    public enum Action: Equatable {
-        case dashboard(DashboardFeature.Action)
-        case workbench(WorkbenchFeature.Action)
-    }
+  @ObservableState
+  public struct State: Equatable {
+    var dashboard = DashboardFeature.State()
+    var workbench = WorkbenchFeature.State()
 
     public init() {}
+  }
 
-    public var body: some ReducerOf<Self> {
-        Scope(
-            state: \.dashboard,
-            action: \.dashboard
-        ) {
-            DashboardFeature()
-        }
-        Scope(
-            state: \.workbench,
-            action: \.workbench
-        ) {
-            WorkbenchFeature()
-        }
-        Reduce { _, _ in
-            .none
-        }
+  public enum Action: Equatable {
+    case dashboard(DashboardFeature.Action)
+    case workbench(WorkbenchFeature.Action)
+  }
+
+  public init() {}
+
+  public var body: some ReducerOf<Self> {
+    Scope(
+      state: \.dashboard,
+      action: \.dashboard
+    ) {
+      DashboardFeature()
     }
+    Scope(
+      state: \.workbench,
+      action: \.workbench
+    ) {
+      WorkbenchFeature()
+    }
+    Reduce { _, _ in
+      .none
+    }
+  }
 }
 
 public struct RootView: View {
-    let store: StoreOf<RootFeature>
+  let store: StoreOf<RootFeature>
 
-    public init(store: StoreOf<RootFeature>) {
-        self.store = store
-    }
+  public init(store: StoreOf<RootFeature>) {
+    self.store = store
+  }
 
-    public var body: some View {
-        TabView {
-            DashboardView(
-                store: store.scope(
-                    state: \.dashboard,
-                    action: \.dashboard
-                )
-            )
-            .tabItem {
-                Label(
-                    "Dashboard",
-                    systemImage: "rectangle.grid.2x2"
-                )
-            }
+  public var body: some View {
+    TabView {
+      DashboardView(
+        store: store.scope(
+          state: \.dashboard,
+          action: \.dashboard
+        )
+      )
+      .tabItem {
+        Label(
+          "Dashboard",
+          systemImage: "rectangle.grid.2x2"
+        )
+      }
 
-            WorkbenchView(
-                store: store.scope(
-                    state: \.workbench,
-                    action: \.workbench
-                )
-            )
-            .tabItem {
-                Label("Workbench", systemImage: "hammer")
-            }
+      WorkbenchView(
+        store: store.scope(
+          state: \.workbench,
+          action: \.workbench
+        )
+      )
+      .tabItem {
+        Label("Workbench", systemImage: "hammer")
+      }
 
-            Text("Measurement")
-                .tabItem {
-                    Label("Measurement", systemImage: "waveform")
-                }
+      Text("Measurement")
+        .tabItem {
+          Label("Measurement", systemImage: "waveform")
         }
     }
+  }
 }
 
 #Preview {
-    NavigationStack {
-        RootView(
-            store: Store(initialState: RootFeature.State()) {
-                RootFeature()
-            }
-        )
-    }
+  NavigationStack {
+    RootView(
+      store: Store(initialState: RootFeature.State()) {
+        RootFeature()
+      }
+    )
+  }
 }

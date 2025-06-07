@@ -4,89 +4,89 @@
 import PackageDescription
 
 let package = Package(
-    name: "Modules",
-    platforms: [
-        .iOS(.v18),
-        .macOS(.v15),
-    ],
-    products: [
-        .library(name: .rootFeature, targets: [.rootFeature]),
-        .library(name: .dashboardFeature, targets: [.dashboardFeature]),
-        .library(name: .commonUI, targets: [.commonUI]),
-        .library(name: .hashtagFeature, targets: [.hashtagFeature]),
-        .library(name: .pipelineFeature, targets: [.pipelineFeature]),
-        .library(name: .graphFeature, targets: [.graphFeature]),
-    ],
-    dependencies: [
-        .package(
-            url: "https://github.com/pointfreeco/swift-composable-architecture",
-            from: Version(1, 20, 2)
+  name: "Modules",
+  platforms: [
+    .iOS(.v18),
+    .macOS(.v15),
+  ],
+  products: [
+    .library(name: .rootFeature, targets: [.rootFeature]),
+    .library(name: .dashboardFeature, targets: [.dashboardFeature]),
+    .library(name: .commonUI, targets: [.commonUI]),
+    .library(name: .hashtagFeature, targets: [.hashtagFeature]),
+    .library(name: .pipelineFeature, targets: [.pipelineFeature]),
+    .library(name: .graphFeature, targets: [.graphFeature]),
+  ],
+  dependencies: [
+    .package(
+      url: "https://github.com/pointfreeco/swift-composable-architecture",
+      from: Version(1, 20, 2)
+    ),
+  ],
+  targets: [
+    .target(
+      name: .rootFeature,
+      dependencies: [
+        .product(
+          name: "ComposableArchitecture",
+          package: "swift-composable-architecture"
         ),
-    ],
-    targets: [
-        .target(
-            name: .rootFeature,
-            dependencies: [
-                .product(
-                    name: "ComposableArchitecture",
-                    package: "swift-composable-architecture"
-                ),
-                .target(name: .commonUI),
-                .target(name: .dashboardFeature),
-                .target(name: .hashtagFeature),
-                .target(name: .pipelineFeature),
-                .target(name: .graphFeature),
-            ]
+        .target(name: .commonUI),
+        .target(name: .dashboardFeature),
+        .target(name: .hashtagFeature),
+        .target(name: .pipelineFeature),
+        .target(name: .graphFeature),
+      ]
+    ),
+    .target(
+      name: .dashboardFeature,
+      dependencies: [
+        .product(
+          name: "ComposableArchitecture",
+          package: "swift-composable-architecture"
         ),
-        .target(
-            name: .dashboardFeature,
-            dependencies: [
-                .product(
-                    name: "ComposableArchitecture",
-                    package: "swift-composable-architecture"
-                ),
-                .target(name: .commonUI),
-            ]
+        .target(name: .commonUI),
+      ]
+    ),
+    .target(
+      name: .commonUI,
+      dependencies: []
+    ),
+    .target(
+      name: .hashtagFeature,
+      dependencies: [
+        .product(
+          name: "ComposableArchitecture",
+          package: "swift-composable-architecture"
         ),
-        .target(
-            name: .commonUI,
-            dependencies: []
+      ]
+    ),
+    .target(
+      name: .pipelineFeature,
+      dependencies: [
+        .product(
+          name: "ComposableArchitecture",
+          package: "swift-composable-architecture"
         ),
-        .target(
-            name: .hashtagFeature,
-            dependencies: [
-                .product(
-                    name: "ComposableArchitecture",
-                    package: "swift-composable-architecture"
-                ),
-            ]
+      ]
+    ),
+    .target(
+      name: .graphFeature,
+      dependencies: [
+        .product(
+          name: "ComposableArchitecture",
+          package: "swift-composable-architecture"
         ),
-        .target(
-            name: .pipelineFeature,
-            dependencies: [
-                .product(
-                    name: "ComposableArchitecture",
-                    package: "swift-composable-architecture"
-                ),
-            ]
-        ),
-        .target(
-            name: .graphFeature,
-            dependencies: [
-                .product(
-                    name: "ComposableArchitecture",
-                    package: "swift-composable-architecture"
-                ),
-            ]
-        ),
-    ]
+      ]
+    ),
+  ]
 )
 
 extension String {
-    fileprivate static let rootFeature = "RootFeature"
-    fileprivate static let dashboardFeature = "DashboardFeature"
-    fileprivate static let commonUI = "CommonUI"
-    fileprivate static let hashtagFeature = "HashtagFeature"
-    fileprivate static let pipelineFeature = "PipelineFeature"
-    fileprivate static let graphFeature = "GraphFeature"
+  fileprivate static let rootFeature = "RootFeature"
+  fileprivate static let dashboardFeature = "DashboardFeature"
+  fileprivate static let commonUI = "CommonUI"
+  fileprivate static let hashtagFeature = "HashtagFeature"
+  fileprivate static let pipelineFeature = "PipelineFeature"
+  fileprivate static let graphFeature = "GraphFeature"
 }

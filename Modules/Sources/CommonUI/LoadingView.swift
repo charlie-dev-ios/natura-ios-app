@@ -6,20 +6,20 @@
 import SwiftUI
 
 public struct LoadingView: View {
-    public init() {}
+  public init() {}
 
-    public var body: some View {
-        ZStack {
-            Color.black.opacity(0.3)
-                .ignoresSafeArea()
-            ProgressView()
-                .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                .scaleEffect(1.5)
-        }
-        .accessibilityIdentifier("LoadingView")
+  public var body: some View {
+    ZStack {
+      Color.black.opacity(0.3)
+        .ignoresSafeArea()
+      ProgressView()
+        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+        .scaleEffect(1.5)
     }
+    .accessibilityIdentifier("LoadingView")
+  }
 }
 
 #Preview {
-    LoadingView()
+  LoadingView()
 }

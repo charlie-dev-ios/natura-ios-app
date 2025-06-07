@@ -11,15 +11,15 @@ import SwiftUI
 
 @main
 struct NaturaApp: App {
-    static let store = Store(
-        initialState: RootFeature.State()
-    ) {
-        RootFeature()
-    }
+  static let store = Store(
+    initialState: RootFeature.State()
+  ) {
+    RootFeature()
+  }
 
-    var body: some Scene {
-        WindowGroup {
-            RootView(store: NaturaApp.store)
-        }
+  var body: some Scene {
+    WindowGroup {
+      RootView(store: NaturaApp.store)
     }
+  }
 }
