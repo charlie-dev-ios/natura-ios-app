@@ -22,6 +22,10 @@ let package = Package(
       url: "https://github.com/pointfreeco/swift-composable-architecture",
       from: Version(1, 20, 2)
     ),
+    .package(
+      url: "https://github.com/pointfreeco/sharing-grdb",
+      from: Version(0, 4, 1)
+    ),
   ],
   targets: [
     .target(
@@ -58,6 +62,10 @@ let package = Package(
         .product(
           name: "ComposableArchitecture",
           package: "swift-composable-architecture"
+        ),
+        .product(
+          name: "SharingGRDB",
+          package: "sharing-grdb"
         ),
       ]
     ),

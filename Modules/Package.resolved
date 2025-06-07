@@ -1,5 +1,5 @@
 {
-  "originHash" : "e981741c52602c77315381fe3d42a3e295d077ef37bce0e69f212a6289d67a89",
+  "originHash" : "daeb90393f6ee79c24071a15f924a477c3dd983f4f6afda043a519ce57b3b8f3",
   "pins" : [
     {
       "identity" : "combine-schedulers",
@@ -8,6 +8,24 @@
       "state" : {
         "revision" : "5928286acce13def418ec36d05a001a9641086f2",
         "version" : "1.0.3"
+      }
+    },
+    {
+      "identity" : "grdb.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/groue/GRDB.swift",
+      "state" : {
+        "revision" : "a5a1be26b4513dc7ec360eb56bc08a345bac6649",
+        "version" : "7.5.0"
+      }
+    },
+    {
+      "identity" : "sharing-grdb",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/sharing-grdb",
+      "state" : {
+        "revision" : "27aa92082156aaaecd002620ff200723eaf3f239",
+        "version" : "0.4.1"
       }
     },
     {
@@ -110,12 +128,39 @@
       }
     },
     {
+      "identity" : "swift-snapshot-testing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-snapshot-testing",
+      "state" : {
+        "revision" : "37230a37e83f1b7023be08e1b1a2603fcb1567fb",
+        "version" : "1.18.4"
+      }
+    },
+    {
+      "identity" : "swift-structured-queries",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-structured-queries",
+      "state" : {
+        "revision" : "9045819f2fc3681ea98c95b2a15d98c459141c98",
+        "version" : "0.5.1"
+      }
+    },
+    {
       "identity" : "swift-syntax",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-syntax",
       "state" : {
         "revision" : "f99ae8aa18f0cf0d53481901f88a0991dc3bd4a2",
         "version" : "601.0.1"
+      }
+    },
+    {
+      "identity" : "swift-tagged",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-tagged",
+      "state" : {
+        "revision" : "3907a9438f5b57d317001dc99f3f11b46882272b",
+        "version" : "0.10.0"
       }
     },
     {
