@@ -3,7 +3,7 @@
 //
 //  Created by kotaro-seki on 2025/06/05.
 
-// import CommonUI
+import CommonUI
 import ComposableArchitecture
 import Foundation
 import SwiftUI
@@ -34,7 +34,7 @@ public struct DashboardView: View {
     }
 
     public var body: some View {
-        Text("Dashboard")
+        LoadingView()
     }
 }
 
