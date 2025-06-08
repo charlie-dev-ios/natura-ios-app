@@ -58,3 +58,4 @@
 --computedvarattrs prev-line
 --complexattrs prev-line
 --yodaswap always
+--disable redundantLet

@@ -57,7 +57,7 @@ public struct HashtagManageTopView: View {
 }
 
 #Preview {
-  _ = prepareDependencies {
+  let _ = prepareDependencies {
     $0.defaultDatabase = try! DatabaseSchema.appDatabase()
   }
   NavigationStack {
