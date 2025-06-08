@@ -15,6 +15,9 @@ import SwiftUI
 public struct HashtagManageTopFeature: Reducer {
   @ObservableState
   public struct State: Equatable {
+    @FetchAll
+    var hashtags: [Hashtag]
+
     public init() {}
   }
 
@@ -29,9 +32,6 @@ public struct HashtagManageTopFeature: Reducer {
 
 public struct HashtagManageTopView: View {
   let store: StoreOf<HashtagManageTopFeature>
-
-  @FetchAll
-  var hashtags: [Hashtag]
 
   public init(store: StoreOf<HashtagManageTopFeature>) {
     self.store = store
@@ -67,11 +67,11 @@ public struct HashtagManageTopView: View {
 
   @ViewBuilder
   private var contents: some View {
-    if hashtags.isEmpty {
+    if store.state.hashtags.isEmpty {
       EmptyStateView(message: "ハッシュタグがありません")
     } else {
       List {
-        ForEach(hashtags) { hashtag in
+        ForEach(store.state.hashtags) { hashtag in
           Text(hashtag.name)
         }
       }
