@@ -40,6 +40,29 @@ public struct HashtagManageTopView: View {
   public var body: some View {
     contents
       .navigationTitle("Hashtags")
+      .toolbar {
+        ToolbarItem(placement: .topBarTrailing) {
+          Button("add") {
+            @Dependency(\.defaultDatabase)
+            var database
+            let newItem = Hashtag.Draft(
+              id: UUID(),
+              name: "sample1",
+              dataType: .number,
+              createdAt: Date(),
+              updatedAt: Date()
+            )
+            do {
+              try database.write { db in
+                try Hashtag.insert(newItem)
+                  .execute(db)
+              }
+            } catch {
+              print(error)
+            }
+          }
+        }
+      }
   }
 
   @ViewBuilder
