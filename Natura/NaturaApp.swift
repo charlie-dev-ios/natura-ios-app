@@ -17,6 +17,12 @@ struct NaturaApp: App {
     RootFeature()
   }
 
+  init() {
+    prepareDependencies {
+      $0.defaultDatabase = try! DatabaseSchema.appDatabase()
+    }
+  }
+
   var body: some Scene {
     WindowGroup {
       RootView(store: NaturaApp.store)

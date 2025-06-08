@@ -3,13 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B8255E6C2DF3C66200A2C468 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E6B2DF3C66200A2C468 /* CommonUI */; };
 		B8255E6E2DF3C66200A2C468 /* DashboardFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E6D2DF3C66200A2C468 /* DashboardFeature */; };
 		B8255E702DF3C66200A2C468 /* RootFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E6F2DF3C66200A2C468 /* RootFeature */; };
+		B8255E722DF46C7200A2C468 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E712DF46C7200A2C468 /* CommonUI */; };
+		B8255E742DF46C7200A2C468 /* DashboardFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E732DF46C7200A2C468 /* DashboardFeature */; };
+		B8255E762DF46C7200A2C468 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E752DF46C7200A2C468 /* Domain */; };
+		B8255E782DF46C7200A2C468 /* GraphFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E772DF46C7200A2C468 /* GraphFeature */; };
+		B8255E7A2DF46C7200A2C468 /* HashtagFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E792DF46C7200A2C468 /* HashtagFeature */; };
+		B8255E7C2DF46C7200A2C468 /* PipelineFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E7B2DF46C7200A2C468 /* PipelineFeature */; };
+		B8255E7E2DF46C7200A2C468 /* RootFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E7D2DF46C7200A2C468 /* RootFeature */; };
+		B8255E882DF4F6DA00A2C468 /* SharingGRDB in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E872DF4F6DA00A2C468 /* SharingGRDB */; };
+		B8255E8B2DF4F70C00A2C468 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E8A2DF4F70C00A2C468 /* ComposableArchitecture */; };
 		B89C8E452C4FFBAA00CCF3C2 /* NaturaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E442C4FFBAA00CCF3C2 /* NaturaApp.swift */; };
 		B89C8E492C4FFBAD00CCF3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B89C8E482C4FFBAD00CCF3C2 /* Assets.xcassets */; };
 		B89C8E4D2C4FFBAD00CCF3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B89C8E4C2C4FFBAD00CCF3C2 /* Preview Assets.xcassets */; };
@@ -37,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		B89C8E412C4FFBAA00CCF3C2 /* Natura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Natura.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B89C8E442C4FFBAA00CCF3C2 /* NaturaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaturaApp.swift; sourceTree = "<group>"; };
+		B89C8E442C4FFBAA00CCF3C2 /* NaturaApp.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = NaturaApp.swift; sourceTree = "<group>"; };
 		B89C8E482C4FFBAD00CCF3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B89C8E4A2C4FFBAD00CCF3C2 /* Natura.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Natura.entitlements; sourceTree = "<group>"; };
 		B89C8E4C2C4FFBAD00CCF3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -49,14 +58,27 @@
 		B89C8E6F2C5000E300CCF3C2 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B8255E822DF485CD00A2C468 /* Schemas */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Schemas; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		B89C8E3E2C4FFBAA00CCF3C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8255E762DF46C7200A2C468 /* Domain in Frameworks */,
 				B8255E6E2DF3C66200A2C468 /* DashboardFeature in Frameworks */,
+				B8255E8B2DF4F70C00A2C468 /* ComposableArchitecture in Frameworks */,
+				B8255E7A2DF46C7200A2C468 /* HashtagFeature in Frameworks */,
 				B8255E6C2DF3C66200A2C468 /* CommonUI in Frameworks */,
 				B8255E702DF3C66200A2C468 /* RootFeature in Frameworks */,
+				B8255E782DF46C7200A2C468 /* GraphFeature in Frameworks */,
+				B8255E722DF46C7200A2C468 /* CommonUI in Frameworks */,
+				B8255E7C2DF46C7200A2C468 /* PipelineFeature in Frameworks */,
+				B8255E882DF4F6DA00A2C468 /* SharingGRDB in Frameworks */,
+				B8255E742DF46C7200A2C468 /* DashboardFeature in Frameworks */,
+				B8255E7E2DF46C7200A2C468 /* RootFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +133,7 @@
 		B89C8E432C4FFBAA00CCF3C2 /* Natura */ = {
 			isa = PBXGroup;
 			children = (
+				B8255E822DF485CD00A2C468 /* Schemas */,
 				B89C8E442C4FFBAA00CCF3C2 /* NaturaApp.swift */,
 				B89C8E482C4FFBAD00CCF3C2 /* Assets.xcassets */,
 				B89C8E4A2C4FFBAD00CCF3C2 /* Natura.entitlements */,
@@ -158,6 +181,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B8255E822DF485CD00A2C468 /* Schemas */,
 			);
 			name = Natura;
 			productName = Natura;
@@ -232,6 +258,10 @@
 				Base,
 			);
 			mainGroup = B89C8E382C4FFBAA00CCF3C2;
+			packageReferences = (
+				B8255E862DF4F6DA00A2C468 /* XCRemoteSwiftPackageReference "sharing-grdb" */,
+				B8255E892DF4F70C00A2C468 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = B89C8E422C4FFBAA00CCF3C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -640,6 +670,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		B8255E862DF4F6DA00A2C468 /* XCRemoteSwiftPackageReference "sharing-grdb" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/sharing-grdb";
+			requirement = {
+				kind = exactVersion;
+				version = 0.4.1;
+			};
+		};
+		B8255E892DF4F70C00A2C468 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = exactVersion;
+				version = 1.20.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		B8255E6B2DF3C66200A2C468 /* CommonUI */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -652,6 +701,44 @@
 		B8255E6F2DF3C66200A2C468 /* RootFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RootFeature;
+		};
+		B8255E712DF46C7200A2C468 /* CommonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonUI;
+		};
+		B8255E732DF46C7200A2C468 /* DashboardFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DashboardFeature;
+		};
+		B8255E752DF46C7200A2C468 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		B8255E772DF46C7200A2C468 /* GraphFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GraphFeature;
+		};
+		B8255E792DF46C7200A2C468 /* HashtagFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HashtagFeature;
+		};
+		B8255E7B2DF46C7200A2C468 /* PipelineFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PipelineFeature;
+		};
+		B8255E7D2DF46C7200A2C468 /* RootFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RootFeature;
+		};
+		B8255E872DF4F6DA00A2C468 /* SharingGRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8255E862DF4F6DA00A2C468 /* XCRemoteSwiftPackageReference "sharing-grdb" */;
+			productName = SharingGRDB;
+		};
+		B8255E8A2DF4F70C00A2C468 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8255E892DF4F70C00A2C468 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

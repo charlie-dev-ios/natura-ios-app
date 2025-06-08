@@ -51,6 +51,10 @@ let package = Package(
           name: "ComposableArchitecture",
           package: "swift-composable-architecture"
         ),
+        .product(
+          name: "SharingGRDB",
+          package: "sharing-grdb"
+        ),
         .target(name: .commonUI),
       ]
     ),
@@ -91,7 +95,12 @@ let package = Package(
     ),
     .target(
       name: .domain,
-      dependencies: []
+      dependencies: [
+        .product(
+          name: "SharingGRDB",
+          package: "sharing-grdb"
+        ),
+      ]
     ),
   ]
 )
