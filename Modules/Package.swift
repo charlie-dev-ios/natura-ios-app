@@ -73,6 +73,7 @@ let package = Package(
           name: "SharingGRDB",
           package: "sharing-grdb"
         ),
+        .target(name: .commonUI),
       ]
     ),
     .target(

@@ -76,6 +76,7 @@ public struct WorkbenchView: View {
           store.send(.graphButtonTapped)
         }
       }
+      .navigationTitle("ワークベンチ画面")
     } destination: { store in
       switch store.case {
       case let .hashtag(store):
@@ -86,7 +87,6 @@ public struct WorkbenchView: View {
         GraphManageTopView(store: store)
       }
     }
-    .navigationTitle("ワークベンチ画面")
   }
 }
 

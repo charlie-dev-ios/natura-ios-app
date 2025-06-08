@@ -3,6 +3,7 @@
 //
 // Created by kotaro-seki on 2025/06/07.
 
+import CommonUI
 import ComposableArchitecture
 import Domain
 import Foundation
@@ -36,9 +37,15 @@ public struct HashtagManageTopView: View {
   }
 
   public var body: some View {
-    List {
-      ForEach(hashtags) { hashtag in
-        Text(hashtag.name)
+    Group {
+      if hashtags.isEmpty {
+        EmptyStateView(message: "ハッシュタグがありません")
+      } else {
+        List {
+          ForEach(hashtags) { hashtag in
+            Text(hashtag.name)
+          }
+        }
       }
     }
     .navigationTitle("Hashtags")
