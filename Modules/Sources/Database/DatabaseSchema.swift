@@ -9,8 +9,8 @@ import Domain
 import Foundation
 import SharingGRDB
 
-enum DatabaseSchema {
-  static func appDatabase() throws -> any DatabaseWriter {
+public enum DatabaseSchema {
+  public static func appDatabase() throws -> any DatabaseWriter {
     @Dependency(\.context)
     var context
 

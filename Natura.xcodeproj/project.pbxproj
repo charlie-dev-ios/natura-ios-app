@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,6 @@
 		B8255E7A2DF46C7200A2C468 /* HashtagFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E792DF46C7200A2C468 /* HashtagFeature */; };
 		B8255E7C2DF46C7200A2C468 /* PipelineFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E7B2DF46C7200A2C468 /* PipelineFeature */; };
 		B8255E7E2DF46C7200A2C468 /* RootFeature in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E7D2DF46C7200A2C468 /* RootFeature */; };
-		B8255E882DF4F6DA00A2C468 /* SharingGRDB in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E872DF4F6DA00A2C468 /* SharingGRDB */; };
 		B8255E8B2DF4F70C00A2C468 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = B8255E8A2DF4F70C00A2C468 /* ComposableArchitecture */; };
 		B89C8E452C4FFBAA00CCF3C2 /* NaturaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E442C4FFBAA00CCF3C2 /* NaturaApp.swift */; };
 		B89C8E492C4FFBAD00CCF3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B89C8E482C4FFBAD00CCF3C2 /* Assets.xcassets */; };
@@ -25,6 +24,7 @@
 		B89C8E572C4FFBAD00CCF3C2 /* NaturaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E562C4FFBAD00CCF3C2 /* NaturaTests.swift */; };
 		B89C8E612C4FFBAD00CCF3C2 /* NaturaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E602C4FFBAD00CCF3C2 /* NaturaUITests.swift */; };
 		B89C8E632C4FFBAD00CCF3C2 /* NaturaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89C8E622C4FFBAD00CCF3C2 /* NaturaUITestsLaunchTests.swift */; };
+		B8DB1B6C2DF51F40005FE55A /* Database in Frameworks */ = {isa = PBXBuildFile; productRef = B8DB1B6B2DF51F40005FE55A /* Database */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +58,6 @@
 		B89C8E6F2C5000E300CCF3C2 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		B8255E822DF485CD00A2C468 /* Schemas */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Schemas; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
 		B89C8E3E2C4FFBAA00CCF3C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -76,8 +72,8 @@
 				B8255E782DF46C7200A2C468 /* GraphFeature in Frameworks */,
 				B8255E722DF46C7200A2C468 /* CommonUI in Frameworks */,
 				B8255E7C2DF46C7200A2C468 /* PipelineFeature in Frameworks */,
-				B8255E882DF4F6DA00A2C468 /* SharingGRDB in Frameworks */,
 				B8255E742DF46C7200A2C468 /* DashboardFeature in Frameworks */,
+				B8DB1B6C2DF51F40005FE55A /* Database in Frameworks */,
 				B8255E7E2DF46C7200A2C468 /* RootFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +129,6 @@
 		B89C8E432C4FFBAA00CCF3C2 /* Natura */ = {
 			isa = PBXGroup;
 			children = (
-				B8255E822DF485CD00A2C468 /* Schemas */,
 				B89C8E442C4FFBAA00CCF3C2 /* NaturaApp.swift */,
 				B89C8E482C4FFBAD00CCF3C2 /* Assets.xcassets */,
 				B89C8E4A2C4FFBAD00CCF3C2 /* Natura.entitlements */,
@@ -181,9 +176,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				B8255E822DF485CD00A2C468 /* Schemas */,
 			);
 			name = Natura;
 			productName = Natura;
@@ -259,7 +251,6 @@
 			);
 			mainGroup = B89C8E382C4FFBAA00CCF3C2;
 			packageReferences = (
-				B8255E862DF4F6DA00A2C468 /* XCRemoteSwiftPackageReference "sharing-grdb" */,
 				B8255E892DF4F70C00A2C468 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = B89C8E422C4FFBAA00CCF3C2 /* Products */;
@@ -671,14 +662,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B8255E862DF4F6DA00A2C468 /* XCRemoteSwiftPackageReference "sharing-grdb" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/sharing-grdb";
-			requirement = {
-				kind = exactVersion;
-				version = 0.4.1;
-			};
-		};
 		B8255E892DF4F70C00A2C468 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -730,15 +713,14 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = RootFeature;
 		};
-		B8255E872DF4F6DA00A2C468 /* SharingGRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B8255E862DF4F6DA00A2C468 /* XCRemoteSwiftPackageReference "sharing-grdb" */;
-			productName = SharingGRDB;
-		};
 		B8255E8A2DF4F70C00A2C468 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B8255E892DF4F70C00A2C468 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		B8DB1B6B2DF51F40005FE55A /* Database */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Database;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

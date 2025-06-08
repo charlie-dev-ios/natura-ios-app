@@ -17,6 +17,7 @@ let package = Package(
     .library(name: .pipelineFeature, targets: [.pipelineFeature]),
     .library(name: .graphFeature, targets: [.graphFeature]),
     .library(name: .domain, targets: [.domain]),
+    .library(name: .database, targets: [.database]),
   ],
   dependencies: [
     .package(
@@ -56,6 +57,8 @@ let package = Package(
           package: "sharing-grdb"
         ),
         .target(name: .commonUI),
+        .target(name: .domain),
+        .target(name: .database),
       ]
     ),
     .target(
@@ -74,6 +77,8 @@ let package = Package(
           package: "sharing-grdb"
         ),
         .target(name: .commonUI),
+        .target(name: .domain),
+        .target(name: .database),
       ]
     ),
     .target(
@@ -83,6 +88,9 @@ let package = Package(
           name: "ComposableArchitecture",
           package: "swift-composable-architecture"
         ),
+        .target(name: .commonUI),
+        .target(name: .domain),
+        .target(name: .database),
       ]
     ),
     .target(
@@ -92,6 +100,9 @@ let package = Package(
           name: "ComposableArchitecture",
           package: "swift-composable-architecture"
         ),
+        .target(name: .commonUI),
+        .target(name: .domain),
+        .target(name: .database),
       ]
     ),
     .target(
@@ -101,6 +112,16 @@ let package = Package(
           name: "SharingGRDB",
           package: "sharing-grdb"
         ),
+      ]
+    ),
+    .target(
+      name: .database,
+      dependencies: [
+        .product(
+          name: "SharingGRDB",
+          package: "sharing-grdb"
+        ),
+        .target(name: .domain),
       ]
     ),
   ]
@@ -114,4 +135,5 @@ extension String {
   fileprivate static let pipelineFeature = "PipelineFeature"
   fileprivate static let graphFeature = "GraphFeature"
   fileprivate static let domain = "Domain"
+  fileprivate static let database = "Database"
 }

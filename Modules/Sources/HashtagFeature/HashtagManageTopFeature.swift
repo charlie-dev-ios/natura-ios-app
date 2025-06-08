@@ -5,6 +5,7 @@
 
 import CommonUI
 import ComposableArchitecture
+import Database
 import Domain
 import Foundation
 import SharingGRDB
@@ -37,22 +38,28 @@ public struct HashtagManageTopView: View {
   }
 
   public var body: some View {
-    Group {
-      if hashtags.isEmpty {
-        EmptyStateView(message: "ハッシュタグがありません")
-      } else {
-        List {
-          ForEach(hashtags) { hashtag in
-            Text(hashtag.name)
-          }
+    contents
+      .navigationTitle("Hashtags")
+  }
+
+  @ViewBuilder
+  private var contents: some View {
+    if hashtags.isEmpty {
+      EmptyStateView(message: "ハッシュタグがありません")
+    } else {
+      List {
+        ForEach(hashtags) { hashtag in
+          Text(hashtag.name)
         }
       }
     }
-    .navigationTitle("Hashtags")
   }
 }
 
 #Preview {
+  _ = prepareDependencies {
+    $0.defaultDatabase = try! DatabaseSchema.appDatabase()
+  }
   NavigationStack {
     HashtagManageTopView(
       store: Store(initialState: HashtagManageTopFeature.State()) {
