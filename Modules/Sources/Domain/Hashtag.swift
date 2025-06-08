@@ -13,7 +13,6 @@ public enum HashtagDataType: String, CaseIterable, Equatable, Hashable, Sendable
 
 @Table
 public struct Hashtag: Identifiable, Equatable, Hashable, Sendable {
-  @Column(as: UUID.BytesRepresentation.self)
   public let id: UUID
   public var name: String
   public var dataType: HashtagDataType

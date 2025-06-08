@@ -53,7 +53,7 @@ public enum DatabaseSchema {
         table: Hashtag.tableName,
         ifNotExists: true
       ) { t in
-        t.column("id", .text).notNull()
+        t.column("id", .text).notNull().primaryKey(onConflict: .replace)
         t.column("name", .text).notNull()
         t.column("dataType", .text).notNull()
         t.column("createdAt", .datetime).notNull()
@@ -63,6 +63,40 @@ public enum DatabaseSchema {
 
     try migrator.migrate(database)
 
+    #if DEBUG
+      if context == .preview {
+        do {
+          try database.write { db in
+            try db.seedSampleData()
+          }
+        } catch {
+          print(error.localizedDescription)
+        }
+      }
+    #endif
+
     return database
   }
 }
+
+#if DEBUG
+  extension Database {
+    func seedSampleData() throws {
+      try seed {
+        hashtag(name: "Reading")
+        hashtag(name: "Training")
+        hashtag(name: "Spent")
+      }
+    }
+
+    private func hashtag(name: String) -> Hashtag {
+      Hashtag(
+        id: UUID(),
+        name: name,
+        dataType: .number,
+        createdAt: Date(),
+        updatedAt: Date()
+      )
+    }
+  }
+#endif
