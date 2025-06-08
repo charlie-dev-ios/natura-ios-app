@@ -36,31 +36,12 @@ public struct HashtagManageTopView: View {
   }
 
   public var body: some View {
-    VStack {
-      Button("add hashtag") {
-        @Dependency(\.defaultDatabase)
-        var database
-        let newItem = Hashtag.Draft(
-          id: UUID(),
-          name: "name",
-          dataType: .number,
-          createdAt: Date(),
-          updatedAt: Date()
-        )
-        do {
-          try database.write { db in
-            try Hashtag.insert(newItem)
-              .execute(db)
-          }
-        } catch {
-          print(error)
-        }
-      }
-
+    List {
       ForEach(hashtags) { hashtag in
         Text(hashtag.name)
       }
     }
+    .navigationTitle("Hashtags")
   }
 }
 
