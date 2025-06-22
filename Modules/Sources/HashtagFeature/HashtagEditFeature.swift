@@ -20,18 +20,42 @@ public struct HashtagEditFeature {
   public struct State: Equatable {
     public var hashtag: Hashtag
     public var isNew: Bool
-    public var errorMessage: String?
-    public var invalidName: Bool {
-      hashtag.name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    public var existingHashtags: [Hashtag] = []
+
+    public var validationError: String? {
+      let trimmedName = hashtag.name.trimmingCharacters(in: .whitespacesAndNewlines)
+
+      if trimmedName.isEmpty {
+        return "1文字以上入力してください"
+      }
+
+      if trimmedName.count > 10 {
+        return "10文字以下で入力してください"
+      }
+
+      let isDuplicate = existingHashtags.contains { existingHashtag in
+        existingHashtag.id != hashtag.id && existingHashtag.name == trimmedName
+      }
+
+      if isDuplicate {
+        return "既に登録されている名前です"
+      }
+
+      return nil
+    }
+
+    public var isValid: Bool {
+      validationError == nil
     }
 
     public init(
       hashtag: Hashtag,
-      isNew: Bool
+      isNew: Bool,
+      existingHashtags: [Hashtag]
     ) {
       self.hashtag = hashtag
       self.isNew = isNew
-      errorMessage = nil
+      self.existingHashtags = existingHashtags
     }
   }
 
@@ -53,11 +77,6 @@ public struct HashtagEditFeature {
         return .none
 
       case .saveTapped:
-        guard !state.invalidName else {
-          state.errorMessage = "ハッシュタグ名を入力してください"
-          return .none
-        }
-
         return .run { [hashtag = state.hashtag] send in
           await send(.delegate(.hashtagSaved(hashtag)))
           @Dependency(\.dismiss)
@@ -89,11 +108,17 @@ public struct HashtagEditView: View {
 
   public var body: some View {
     Form {
-      Section(header: Text("ハッシュタグ名")) {
+      Section {
         TextField(
           "ハッシュタグ名",
           text: $store.hashtag.name
         )
+      } header: {
+        Text("ハッシュタグ名")
+      } footer: {
+        Text(store.validationError ?? "")
+          .foregroundColor(.orange)
+          .font(.caption)
       }
 
       Section(header: Text("データ形式")) {
@@ -106,14 +131,6 @@ public struct HashtagEditView: View {
           }
         }
         .pickerStyle(.segmented)
-      }
-
-      if let error = store.errorMessage {
-        Section {
-          Text(error)
-            .foregroundColor(.red)
-            .font(.caption)
-        }
       }
     }
     .navigationTitle(store.isNew ? "新規ハッシュタグ" : "ハッシュタグ編集")
@@ -129,7 +146,7 @@ public struct HashtagEditView: View {
           store.send(.saveTapped)
         }
         .fontWeight(.semibold)
-        .disabled(store.invalidName)
+        .disabled(!store.isValid)
       }
     }
   }
@@ -150,7 +167,8 @@ extension HashtagDataType {
       store: Store(
         initialState: HashtagEditFeature.State(
           hashtag: .mock,
-          isNew: false
+          isNew: false,
+          existingHashtags: []
         )
       ) {
         HashtagEditFeature()
