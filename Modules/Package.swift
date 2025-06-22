@@ -28,6 +28,11 @@ let package = Package(
       url: "https://github.com/pointfreeco/sharing-grdb",
       from: Version(0, 4, 1)
     ),
+    // TODO: https://github.com/pointfreeco/swift-composable-architecture/issues/3704
+    .package(
+      url: "https://github.com/pointfreeco/swift-navigation",
+      from: Version(2, 3, 1)
+    ),
   ],
   targets: [
     .target(
