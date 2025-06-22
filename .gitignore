@@ -2,3 +2,6 @@
 
 xcuserdata/
 .build/
+
+# Claude Code working directory
+.claude/
