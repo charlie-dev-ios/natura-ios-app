@@ -35,3 +35,13 @@ public struct Hashtag: Identifiable, Equatable, Hashable, Sendable {
     self.updatedAt = updatedAt
   }
 }
+
+extension Hashtag {
+  public static let mock = Hashtag(
+    id: UUID(),
+    name: "name",
+    dataType: .number,
+    createdAt: Date(),
+    updatedAt: Date()
+  )
+}
