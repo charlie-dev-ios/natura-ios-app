@@ -20,6 +20,8 @@ public struct HashtagManageTopFeature: Reducer {
     @Presents
     var hashtagEdit: HashtagEditFeature.State?
     var errorMessage: String?
+    var hashtagToDelete: Hashtag?
+    var showDeleteConfirmation = false
 
     public init() {}
   }
@@ -28,6 +30,10 @@ public struct HashtagManageTopFeature: Reducer {
     case hashtagTapped(Hashtag)
     case addButtonTapped
     case hashtagEdit(PresentationAction<HashtagEditFeature.Action>)
+    case deleteHashtagSwipe(Hashtag)
+    case deleteConfirmationPresented(Bool)
+    case deleteConfirmed
+    case deleteCancelled
   }
 
   public init() {}
@@ -41,9 +47,11 @@ public struct HashtagManageTopFeature: Reducer {
       case let .hashtagTapped(hashtag):
         state.hashtagEdit = HashtagEditFeature.State(
           hashtag: hashtag,
-          isNew: false
+          isNew: false,
+          existingHashtags: state.hashtags
         )
         return .none
+
       case .addButtonTapped:
         state.hashtagEdit = HashtagEditFeature.State(
           hashtag: Hashtag(
@@ -53,9 +61,11 @@ public struct HashtagManageTopFeature: Reducer {
             createdAt: Date(),
             updatedAt: Date()
           ),
-          isNew: true
+          isNew: true,
+          existingHashtags: state.hashtags
         )
         return .none
+
       case let .hashtagEdit(.presented(.delegate(.hashtagSaved(hashtag)))):
         do {
           try save(hashtag)
@@ -63,6 +73,37 @@ public struct HashtagManageTopFeature: Reducer {
           state.errorMessage = error.localizedDescription
         }
         return .none
+
+      case let .deleteHashtagSwipe(hashtag):
+        state.hashtagToDelete = hashtag
+        state.showDeleteConfirmation = true
+        return .none
+
+      case let .deleteConfirmationPresented(isPresented):
+        state.showDeleteConfirmation = isPresented
+        if !isPresented {
+          state.hashtagToDelete = nil
+        }
+        return .none
+
+      case .deleteConfirmed:
+        guard let hashtag = state.hashtagToDelete else {
+          return .none
+        }
+        state.showDeleteConfirmation = false
+        state.hashtagToDelete = nil
+        do {
+          try delete(hashtag)
+        } catch {
+          state.errorMessage = error.localizedDescription
+        }
+        return .none
+
+      case .deleteCancelled:
+        state.showDeleteConfirmation = false
+        state.hashtagToDelete = nil
+        return .none
+
       case .hashtagEdit:
         return .none
       }
@@ -77,6 +118,15 @@ public struct HashtagManageTopFeature: Reducer {
     var database
     try database.write { db in
       try Hashtag.insert(hashtag)
+        .execute(db)
+    }
+  }
+
+  private func delete(_ hashtag: Hashtag) throws {
+    @Dependency(\.defaultDatabase)
+    var database
+    try database.write { db in
+      try Hashtag.delete(hashtag)
         .execute(db)
     }
   }
@@ -105,6 +155,21 @@ public struct HashtagManageTopView: View {
           HashtagEditView(store: hashtagEditStore)
         }
       }
+      .alert(
+        "ハッシュタグを削除",
+        isPresented: $store.showDeleteConfirmation.sending(\.deleteConfirmationPresented)
+      ) {
+        Button("キャンセル", role: .cancel) {
+          store.send(.deleteCancelled)
+        }
+        Button("削除", role: .destructive) {
+          store.send(.deleteConfirmed)
+        }
+      } message: {
+        if let hashtag = store.hashtagToDelete {
+          Text("\(hashtag.name)を削除します。よろしいですか？")
+        }
+      }
   }
 
   @ViewBuilder
@@ -127,6 +192,12 @@ public struct HashtagManageTopView: View {
             }
           }
           .buttonStyle(.plain)
+          .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+            Button("削除") {
+              store.send(.deleteHashtagSwipe(hashtag))
+            }
+            .tint(.red)
+          }
         }
       }
     }
