@@ -74,10 +74,10 @@ public struct HashtagEditFeature {
     Reduce { state, action in
       switch action {
       case .binding:
-        return .none
+        .none
 
       case .saveTapped:
-        return .run { [hashtag = state.hashtag] send in
+        .run { [hashtag = state.hashtag] send in
           await send(.delegate(.hashtagSaved(hashtag)))
           @Dependency(\.dismiss)
           var dismiss
@@ -85,14 +85,14 @@ public struct HashtagEditFeature {
         }
 
       case .cancelTapped:
-        return .run { _ in
+        .run { _ in
           @Dependency(\.dismiss)
           var dismiss
           await dismiss()
         }
 
       case .delegate:
-        return .none
+        .none
       }
     }
   }
@@ -156,7 +156,7 @@ extension HashtagDataType {
   var displayName: String {
     switch self {
     case .number:
-      return "数値"
+      "数値"
     }
   }
 }
