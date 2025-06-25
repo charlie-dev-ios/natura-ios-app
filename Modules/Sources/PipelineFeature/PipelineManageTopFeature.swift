@@ -8,6 +8,7 @@ import ComposableArchitecture
 import Database
 import Domain
 import Foundation
+import GRDB
 import SharingGRDB
 import SwiftUI
 

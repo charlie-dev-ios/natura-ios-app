@@ -74,6 +74,23 @@ public enum DatabaseSchema {
       }
     }
 
+    migrator.registerMigration("Create PipelineHashtags table") { db in
+      try db.create(
+        table: PipelineHashtag.tableName,
+        ifNotExists: true
+      ) { t in
+        t.column("id", .text).notNull().primaryKey(onConflict: .replace)
+        t.column("pipelineId", .text).notNull()
+          .references(Pipeline.tableName, onDelete: .cascade)
+        t.column("hashtagId", .text).notNull()
+          .references(Hashtag.tableName, onDelete: .cascade)
+        t.column("createdAt", .datetime).notNull()
+
+        // 複合ユニーク制約（同じパイプライン-ハッシュタグの組み合わせは一意）
+        t.uniqueKey(["pipelineId", "hashtagId"])
+      }
+    }
+
     try migrator.migrate(database)
 
     #if DEBUG
@@ -95,22 +112,50 @@ public enum DatabaseSchema {
 #if DEBUG
   extension Database {
     func seedSampleData() throws {
+      let readingHashtag = hashtag(name: "Reading")
+      let trainingHashtag = hashtag(name: "Training")
+      let analyticsHashtag = hashtag(name: "Analytics")
+      let backupHashtag = hashtag(name: "Backup")
+      let mlModelHashtag = hashtag(name: "ML Model")
+
+      let dataPipeline = pipeline(
+        name: "Data Processing Pipeline",
+        description: "Main data processing pipeline for analytics"
+      )
+      let backupPipeline = pipeline(
+        name: "Backup Pipeline",
+        description: "Daily backup and archival pipeline"
+      )
+      let mlPipeline = pipeline(
+        name: "ML Training Pipeline",
+        description: "Machine learning model training pipeline"
+      )
+
       try seed {
-        hashtag(name: "Reading")
-        hashtag(name: "Training")
-        hashtag(name: "Spent")
-        pipeline(
-          name: "Data Processing Pipeline",
-          description: "Main data processing pipeline for analytics"
-        )
-        pipeline(
-          name: "Backup Pipeline",
-          description: "Daily backup and archival pipeline"
-        )
-        pipeline(
-          name: "ML Training Pipeline",
-          description: "Machine learning model training pipeline"
-        )
+        // ハッシュタグを作成
+        readingHashtag
+        trainingHashtag
+        analyticsHashtag
+        backupHashtag
+        mlModelHashtag
+
+        // パイプラインを作成
+        dataPipeline
+        backupPipeline
+        mlPipeline
+
+        // 多対多の関連付け
+        // Data Processing Pipeline: Reading, Training, Analytics
+        pipelineHashtag(pipelineId: dataPipeline.id, hashtagId: readingHashtag.id)
+        pipelineHashtag(pipelineId: dataPipeline.id, hashtagId: trainingHashtag.id)
+        pipelineHashtag(pipelineId: dataPipeline.id, hashtagId: analyticsHashtag.id)
+
+        // Backup Pipeline: Backup
+        pipelineHashtag(pipelineId: backupPipeline.id, hashtagId: backupHashtag.id)
+
+        // ML Training Pipeline: Training, ML Model (Trainingは複数のパイプラインで共有)
+        pipelineHashtag(pipelineId: mlPipeline.id, hashtagId: trainingHashtag.id)
+        pipelineHashtag(pipelineId: mlPipeline.id, hashtagId: mlModelHashtag.id)
       }
     }
 
@@ -134,6 +179,18 @@ public enum DatabaseSchema {
         description: description,
         createdAt: Date(),
         updatedAt: Date()
+      )
+    }
+
+    private func pipelineHashtag(
+      pipelineId: UUID,
+      hashtagId: UUID
+    ) -> PipelineHashtag {
+      PipelineHashtag(
+        id: UUID(),
+        pipelineId: pipelineId,
+        hashtagId: hashtagId,
+        createdAt: Date()
       )
     }
   }

@@ -4,8 +4,8 @@
 //  Created by kotaro-seki on 2025/06/07.
 
 import Foundation
+import GRDB
 import SharingGRDB
-import StructuredQueries
 
 public enum HashtagDataType: String, CaseIterable, Equatable, Hashable, Sendable, QueryBindable {
   case number
@@ -34,6 +34,20 @@ public struct Hashtag: Identifiable, Equatable, Hashable, Sendable {
     self.createdAt = createdAt
     self.updatedAt = updatedAt
   }
+}
+
+// MARK: - GRDB Associations
+
+extension Hashtag: TableRecord {
+  /// PipelineHashtag への hasMany アソシエーション
+  public static let pipelineHashtags = hasMany(PipelineHashtag.self)
+
+  /// Pipeline への hasManyThrough アソシエーション（多対多関係）
+  public static let pipelines = hasMany(
+    Pipeline.self,
+    through: pipelineHashtags,
+    using: PipelineHashtag.pipeline
+  )
 }
 
 extension Hashtag {

@@ -4,8 +4,8 @@
 //  Created by kotaro-seki on 2025/06/23.
 
 import Foundation
+import GRDB
 import SharingGRDB
-import StructuredQueries
 
 @Table
 public struct Pipeline: Identifiable, Equatable, Hashable, Sendable {
@@ -30,6 +30,20 @@ public struct Pipeline: Identifiable, Equatable, Hashable, Sendable {
     self.createdAt = createdAt
     self.updatedAt = updatedAt
   }
+}
+
+// MARK: - GRDB Associations
+
+extension Pipeline: TableRecord {
+  /// PipelineHashtag への hasMany アソシエーション
+  public static let pipelineHashtags = hasMany(PipelineHashtag.self)
+
+  /// Hashtag への hasManyThrough アソシエーション（多対多関係）
+  public static let hashtags = hasMany(
+    Hashtag.self,
+    through: pipelineHashtags,
+    using: PipelineHashtag.hashtag
+  )
 }
 
 extension Pipeline {
