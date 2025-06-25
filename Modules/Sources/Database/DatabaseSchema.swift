@@ -61,6 +61,19 @@ public enum DatabaseSchema {
       }
     }
 
+    migrator.registerMigration("Create Pipelines table") { db in
+      try db.create(
+        table: Pipeline.tableName,
+        ifNotExists: true
+      ) { t in
+        t.column("id", .text).notNull().primaryKey(onConflict: .replace)
+        t.column("name", .text).notNull()
+        t.column("description", .text).notNull()
+        t.column("createdAt", .datetime).notNull()
+        t.column("updatedAt", .datetime).notNull()
+      }
+    }
+
     try migrator.migrate(database)
 
     #if DEBUG
@@ -86,6 +99,18 @@ public enum DatabaseSchema {
         hashtag(name: "Reading")
         hashtag(name: "Training")
         hashtag(name: "Spent")
+        pipeline(
+          name: "Data Processing Pipeline",
+          description: "Main data processing pipeline for analytics"
+        )
+        pipeline(
+          name: "Backup Pipeline",
+          description: "Daily backup and archival pipeline"
+        )
+        pipeline(
+          name: "ML Training Pipeline",
+          description: "Machine learning model training pipeline"
+        )
       }
     }
 
@@ -94,6 +119,19 @@ public enum DatabaseSchema {
         id: UUID(),
         name: name,
         dataType: .number,
+        createdAt: Date(),
+        updatedAt: Date()
+      )
+    }
+
+    private func pipeline(
+      name: String,
+      description: String
+    ) -> Pipeline {
+      Pipeline(
+        id: UUID(),
+        name: name,
+        description: description,
         createdAt: Date(),
         updatedAt: Date()
       )
